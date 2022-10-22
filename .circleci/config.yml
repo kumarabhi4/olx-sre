@@ -24,8 +24,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: "print hello"
-        command: "echo Hello"
+          name: "print hello"
+          command: "echo Hello"
 
   print_world:
     docker:
@@ -33,8 +33,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: "print world"
-        command: "echo World!"
+          name: "print world"
+          command: "echo World!"
 
 
 # Invoke jobs via workflows
