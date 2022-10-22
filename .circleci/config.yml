@@ -35,6 +35,14 @@ jobs:
       - run:
           name: "print world"
           command: "echo World!"
+  print_my_name:
+    docker:
+      - image: alpine:latest
+    steps:
+      - checkout
+      - run:
+          name: "my name"
+          command: echo $MY_NAME
 
 
 # Invoke jobs via workflows
@@ -46,3 +54,4 @@ workflows:
       - print_world:
           requires:
             - print_hello
+      - print_my_name
