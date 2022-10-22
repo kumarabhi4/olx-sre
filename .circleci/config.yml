@@ -24,7 +24,7 @@ jobs:
     steps:
       - checkout
       - run:
-        name: "print_hello"
+        name: "print hello"
         command: "echo Hello"
 
   print_world:
@@ -33,7 +33,7 @@ jobs:
     steps:
       - checkout
       - run:
-        name: "print_world"
+        name: "print world"
         command: "echo World!"
 
 
