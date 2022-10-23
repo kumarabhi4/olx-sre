@@ -6,7 +6,7 @@ commands:
   print_pipeline_id:
     description: "prints the Circle CI Workflow ID"
     steps:
-      run: echo ${CIRCLE_WORKFLOW_ID}
+      - run: echo ${CIRCLE_WORKFLOW_ID}
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
