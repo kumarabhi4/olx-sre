@@ -80,9 +80,25 @@ jobs:
     steps:
       - checkout
       - print_pipeline_id
+
+  return_non_zero:
+    docker:
+      - image: alpine:latest
+    steps:
+      - run:
+          command: return 1
+  
+  use_failed_job:
+    docker:
+      - image: alpine:latest
+    steps:
+      - run:
+          command: echo "Executed after failure!!"
+          when: on_fail
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
     jobs:
-      - use_command
+      - return_non_zero
+      - use_failed_job
