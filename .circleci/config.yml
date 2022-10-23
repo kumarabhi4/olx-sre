@@ -53,7 +53,7 @@ jobs:
           name: "save hello world output"
           command: echo "Hello World" > output.txt
       - persist_to_workspace:
-          root: /tmp/
+          root: .
           paths:
             - output.txt
 
@@ -63,10 +63,10 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /tmp/
+          at: .
       - run:
           name: "get hello world output"
-          command: cat /tmp/output.txt
+          command: cat output.txt
 
 
 # Invoke jobs via workflows
