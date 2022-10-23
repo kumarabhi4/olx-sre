@@ -86,7 +86,7 @@ jobs:
       - image: alpine:latest
     steps:
       - run:
-          command: return 1
+          command: return 0
   
   use_failed_job:
     docker:
