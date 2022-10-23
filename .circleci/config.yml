@@ -43,6 +43,30 @@ jobs:
       - run:
           name: "my name"
           command: echo $MY_NAME
+  
+  save_hello_world_output:
+    docker:
+      - image: alpine:latest
+    steps:
+      - checkout
+      - run:
+          name: "save hello world output"
+          command: echo "Hello World" > output.txt
+      - persist_to_workspace:
+          root: /tmp/
+          paths:
+            - output.txt
+
+  print_output_file:
+    docker:
+      - image: alpine:latest
+    steps:
+      - checkout
+      - attach_workspace:
+          at: /tmp/
+      - run:
+          name: "get hello world output"
+          command: cat /tmp/output.txt
 
 
 # Invoke jobs via workflows
